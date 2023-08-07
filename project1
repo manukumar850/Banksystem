@@ -1,0 +1,80 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+class BankAccount {
+    private :
+    int account_no;
+    string account_holder_name;
+    double balance;
+    public:
+    BankAccount(int acc_no, string acc_hold, double initBalance):
+    account_no(acc_no), account_holder_name(acc_hold), balance(initBalance){}
+    
+    void deposit(double amount)
+    {
+        if(amount>0)
+        {
+            balance+=amount;
+        }
+        
+    }
+    void withdraw(double amount)
+    {
+        if(amount>0 && amount<=balance)
+        {
+            balance-=amount;
+        }
+        
+    }
+    double getBalance() const
+    {
+        return balance;
+    }
+    
+};
+
+int main()
+{
+    BankAccount account (1234,"manu_kumar", 500);
+    
+    cout<<"Welcome to the Apna Bank"<<endl;
+    int choice;
+    double amount;
+    cout<<" 1. DEPOSIT"<<endl;
+    cout<<" 2. Withdraw"<<endl;
+    cout<<" 3. Check Balance"<<endl;
+    cout<<" 4. Exit"<<endl;
+   
+    while(1)
+    {
+        cin>>choice;
+    switch(choice)
+    {
+        
+        case 1:
+        cout<<"enter the amount:"<<endl;
+        cin>>amount;
+        account.deposit(amount);
+        break;
+        case 2:
+        cout<<"enter the amount:"<<endl;
+        cin>>amount;
+        account.withdraw(amount);
+        break;
+        case 3:
+        cout<<"your balance is :"<<account.getBalance()<<endl;
+        cout<<"Thank You!"<<endl;
+        break;
+        case 4:
+        cout<<"thank you for using the system!"<<endl;
+        break;
+        default:
+        cout<<"invalid choice!"<<endl;
+        break;
+        
+    }
+    
+    }
+    return 0;
+}
